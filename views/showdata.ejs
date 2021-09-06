@@ -1,0 +1,58 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>All data</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <%if(data){%>
+  <div class=".table-responsive{-sm|-md|-lg} m-3">
+    <table
+      class="
+        table table-striped 
+      "
+    >
+      <thead>
+        <tr>
+          <th scope="col" >c_name</th>
+          <th scope="col" >c_batch_no</th>
+          <th scope="col" >d_expiry_date</th>
+          <th scope="col" >n_balance_qty</th>
+          <th scope="col" >c_packaging</th>
+          <th scope="col" >c_unique_code</th>
+          <th scope="col" >c_schemes</th>
+          <th scope="col" >n_mrp</th>
+          <th scope="col" >c_manufacturer</th>
+          <th scope="col" >hsn_code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%data.forEach((d)=>{ %>
+        <tr>
+          <td scope="row"><%= d.c_name%></td>
+          <td scope="row"><%= d.c_batch_no%></td>
+          <td scope="row"><%= d.d_expiry_date%></td>
+          <td scope="row"><%= d.n_balance_qty%></td>
+          <td scope="row"><%= d.c_packaging%></td>
+          <td scope="row"><%= d.c_unique_code%></td>
+          <td scope="row"><%= d.c_schemes%></td>
+          <td scope="row"><%= d.n_mrp%></td>
+          <td scope="row"><%= d.c_manufacturer%></td>
+          <td scope="row"><%= d.hsn_code%></td>
+        </tr>
+        <%})%>
+      </tbody>
+    </table>
+  </div>
+  <%} else{ %>
+  <h2>Please upload excel file!</h2>
+  <a href="/"> Click here to upload</a>
+  <%}%>
+</html>
